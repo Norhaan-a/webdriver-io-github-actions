@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400;1,700&family=Bubblegum+Sans&family=Quicksand:wght@700&display=swap');
+
+
+body {
+  margin: 0;
+  background-color: rgb(42, 135, 65);
+  font-family: 'Bitter';
+}
+
+h1, h2, h3, h4, button, .price {
+  font-family: 'Quicksand';
+}
+
+header {
+  background-color: rgb(73, 201, 73);
+}
+
+header h1 {
+  margin: 0;
+  padding: 20px;
+  font-family: 'Bubblegum Sans';
+  font-weight: normal;
+}
+
+main {
+  background-color: white;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.productInList {
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: rgb(208, 236, 208);
+}
+
+.productInList h3 {
+  cursor: pointer;
+}
+
+.productInList img {
+  float: right;
+  width: 30%;
+}
+
+.product img {
+  float: right;
+  width: 40%;
+  margin: 0 20px 40px 20px;
+}
+
+.backButton {
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color:rgb(42, 135, 65);
+  color: white;
+}
+
+.product .price {
+  float: right;
+  margin-top: -10px;
+}
+
+.buyButton {
+  cursor: pointer;
+}
