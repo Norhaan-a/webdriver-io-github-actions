@@ -1,0 +1,43 @@
+name: Run WebDriverIO tests
+
+# Run this workflow when we dev or main changes
+# because of a push or is about the be changed
+# by a pull request
+on:
+  push:
+    branches: [dev, main]
+  pull_request: 
+    branches: [dev, main]
+
+jobs:
+  
+  ### Run WebDriver IO tests
+  webdriver-io-tests:
+
+    runs-on: ubuntu-latest # on an ubuntu server
+    strategy:
+      matrix:
+        node-version: [14.x] # with Node.js 14.x
+  
+    steps:
+      # checkout repo
+    - uses: actions/checkout@v2 
+      # install node
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+      # install npm modules (using ci, instead of i)
+    - run: npm ci
+      # run the npm build command (not used in our project)
+    - run: npm run build --if-present
+      # install pm2
+    - run: npm install -g pm2
+      # run our Node.js based server/backend/REST-api using pm2
+    - run: pm2 start backend.js
+      # Install Chrome
+    - run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - run: sudo apt install ./google-chrome-stable_current_amd64.deb
+      ### Run the WebDriverIO tests
+    - run: HEADLESS_CHROME=yes npm run wdio
