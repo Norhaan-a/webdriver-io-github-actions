@@ -4,7 +4,7 @@
     "description": "",
     "main": "main.js",
     "scripts": {
-        "start": "node backend",
+        "start": "node backend/index",
         "test": "jest",
         "wdio": "wdio run wdio.conf.js"
     },
@@ -23,7 +23,9 @@
         "wdio-chromedriver-service": "^7.3.2"
     },
     "dependencies": {
+        "better-express-store": "^1.0.4",
         "better-sqlite3": "^7.5.0",
-        "express": "^4.17.3"
+        "express": "^4.17.3",
+        "express-session": "^1.17.2"
     }
 }
