@@ -34,7 +34,7 @@ When(/^I click on the buy button for "(.*)"$/, async (productName) => {
 Then(/^(\d*) item of "(.*)" should be added to the cart$/, 
 async (quantity, productName) => {
     // get all the table cells in the first row of table that is the shoppingList/cart
-    let tds = await $$('.shoppingList tr:first-child td')
+    let tds = await $$('.shoppingCart tr:first-child td')
     // check that we have the expected content in the cart
     await expect(tds[0]).toHaveText(quantity);
     await expect(tds[1]).toHaveText(productName);
